@@ -27,14 +27,13 @@ class Register extends Component {
     const errors = this.props.errors;
 
     return (
+    <div className="container">
+    <div className="card mt-20 shadow-sm p-3 mb-2 bg-white rounded text-center"><h1 className="display-4">Registration Form</h1> </div>
       <div className="card mt-20 shadow p-3 mb-5 bg-white rounded">
         <div className="register">
             <div className="container">
                 <div className="row">       
                     <div className="col-md-8 m-auto">
-                        <h1 className="display-6 text-center">
-                         Create Account   
-                        </h1>
                         <br/>
                         <form noValidate>
                             <div className="form-group">
@@ -42,7 +41,7 @@ class Register extends Component {
                                 type="text" 
                                 className={classnames('form-control form-control-lg',{
                                 'is-invalid':errors.first_name})}
-                                placeholder="Your first name" 
+                                placeholder="First name" 
                                 name="first_name" 
                                 value={this.state.first_name}
                                 onChange={this.onChange} />
@@ -54,11 +53,48 @@ class Register extends Component {
                                 type="text" 
                                 className={classnames('form-control form-control-lg',{
                                 'is-invalid':errors.last_name})}
-                                placeholder="Your last name" 
+                                placeholder="Last name" 
                                 name="last_name" 
                                 value={this.state.last_name}
                                 onChange={this.onChange} />
                                 {errors.last_name && (<div className="invalid-feedback">{errors.last_name}</div>)}
+                            </div>
+
+                            <div className="form-group">
+                                <input 
+                                type="email" 
+                                className={classnames('form-control form-control-lg',{
+                                'is-invalid':errors.email})}
+                                placeholder="Email address" 
+                                name="email" 
+                                value={this.state.email}
+                                onChange={this.onChange} />
+                                {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
+                                <small className="form-text text-muted">This site uses Gravatar, please use Gravatar email for profile image</small>
+                            </div>
+
+                            <div className="form-group">
+                                <input 
+                                type="password" 
+                                className={classnames('form-control form-control-lg',{
+                                'is-invalid':errors.password})}
+                                placeholder="Password" 
+                                name="password" 
+                                value={this.state.password}
+                                onChange={this.onChange} />
+                                {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
+                            </div>
+
+                            <div className="form-group">
+                                <input 
+                                type="password" 
+                                className={classnames('form-control form-control-lg',{
+                                'is-invalid':errors.confirmPassword})}
+                                placeholder="Confirm password" 
+                                name="confirmPassword" 
+                                value={this.state.confirmPassword}
+                                onChange={this.onChange} />
+                                {errors.confirmPassword && (<div className="invalid-feedback">{errors.confirmPassword}</div>)}
                             </div>
                         </form>
                     </div>
@@ -66,6 +102,7 @@ class Register extends Component {
             </div>
         </div>
       </div>
+    </div>
     )
   }
 }
