@@ -5,6 +5,8 @@ import Footer from './components/base/Footer';
 import Navbar from '../src/components/base/Navbar'
 import store from './store';
 import Home from '../src/components/base/Home';
+import Register from '../src/components/user/Register';
+import Login from '../src/components/user/Login';
 import jwt_decode from 'jwt-decode';
 import setAuth from './utilities/setAuth';
 import './App.css';
@@ -31,6 +33,8 @@ class App extends Component {
           <div className="App">
             <Navbar/>
             <Route exact path="/" component={Home}/>
+            <Route exact path="/register" component={Register}/>
+            <Route exact path="/login" component={Login}/>
             <div className="container">
             </div>
           </div>

@@ -1,8 +1,8 @@
 const Validator = require('validator');
-const checkInput = require('./checkInput');
+const checkInput = require('./checkInput');4
+
 module.exports = function regValidation(data){
     let errors = {};
-
     // Initializing data
     if(checkInput(data.first_name))
         data.first_name = '';

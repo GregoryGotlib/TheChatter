@@ -10,7 +10,7 @@ const passport = require('passport');
 
 // Registration
 router.post('/register',(req,res)=>{
-    const errors = regValidation(req.body.errros);
+    const errors = regValidation(req.body.errors);
     const isValid = regValidation(req.body.isValid);
 
     if(!isValid){
@@ -51,7 +51,7 @@ router.post('/register',(req,res)=>{
 
 // Login
 router.post('/login',(req,res)=>{
-    const errors = loginValidation(req.body.errros);
+    const errors = loginValidation(req.body.errors);
     const isValid = loginValidation(req.body.isValid);
 
     if(!isValid){

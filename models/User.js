@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     first_name:{
         type:String,
-        require:true
+        required:true
     },
     last_name:{
         type:String,
@@ -16,7 +16,7 @@ const UserSchema = new Schema({
     },
     email:{
         type:String,
-        required:ture
+        required:true
     },
     avatar:{
         type:String
