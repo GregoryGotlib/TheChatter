@@ -3,11 +3,13 @@ import React, { Component } from 'react'
 export default class Dashboard extends Component {
   render() {
     return (
-      <div className="container" style={{marginTop:'250px',marginBottom:'150px'}}> 
+      <div className="dashContainer" style={{marginTop:'200px',marginBottom:'250px',marginLeft:'20%'}}> 
         <div className="row">
-            <a href="" className="btn btn-info btn-block mr-5" style={{width:'270px'}}>Profile</a>
-            <a href="" className="btn btn-success  btn-block mr-5" style={{width:'270px'}}>Start Chatting</a>
-            <a href="" className="btn btn-primary  btn-block mr-5" style={{width:'270px'}}>Dunno</a>
+          <div className="dash">
+            <a href="" className="btn btn-info mr-5 mb-3" style={{width:'270px',height:'150px'}}>Profile</a>
+            <a href="" className="btn btn-success mr-5 mb-3" style={{width:'270px',height:'150px'}}>Start Chatting</a>
+            <a href="" className="btn btn-primary mr-5 mb-3" style={{width:'270px',height:'150px'}}>Dunno</a>
+          </div>
         </div>
       </div>
     )
