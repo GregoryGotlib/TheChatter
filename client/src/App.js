@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route , Switch } from 'react-router-dom';
 import Footer from './components/base/Footer';
-import Navbar from '../src/components/base/Navbar'
+import Navbar from './components/base/Navbar'
 import store from './store';
-import Home from '../src/components/base/Home';
-import Register from '../src/components/user/Register';
-import Login from '../src/components/user/Login';
+import Home from './components/base/Home';
+import Register from './components/user/Register';
+import Login from './components/user/Login';
 import jwt_decode from 'jwt-decode';
+import PrivateRoute from './utilities/privateRoute';
 import setAuth from './utilities/setAuth';
 import './App.css';
+import Dashboard from './components/user/Dashboard';
 
 // in case we have token
 if(localStorage.userToken){
@@ -35,8 +37,9 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route exact path="/register" component={Register}/>
             <Route exact path="/login" component={Login}/>
-            <div className="container">
-            </div>
+            <Switch>
+              <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+            </Switch>
           </div>
             <Footer/>
         </Router>

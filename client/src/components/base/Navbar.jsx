@@ -25,13 +25,10 @@ class Navbar extends Component {
     )
 
     const authenticatedUserNav = (
-        <ul className="navbar-nav ml-auto mr-5" style={{backgroundColor:'red'}}>
+        <ul className="navbar-nav ml-auto mr-5">
             <li className="nav-item">
-                <a href="/profile" className="nav-link">Profile</a>
-            </li>
-            <li className="nav-item">
-                <img style={{width:'30px', marginRight:'5px'}} src={user.avatar} alt={user.name} className="rounded-circle"/>
-                <a href="#" className="nav-link" onClick={this.logoutHandler}>Logout</a>
+            <a href="#" className="nav-link" onClick={this.logoutHandler}><img style={{width:'30px', marginRight:'5px'}} src={user.avatar} alt={user.name} className="rounded-circle"/> Logout
+            </a>                
             </li>
         </ul>
     )
@@ -61,7 +58,7 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    auth:state.auth_R
+    auth:state.auth
 })
 
 export default connect(mapStateToProps,{userLogout})(Navbar);

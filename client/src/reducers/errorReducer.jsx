@@ -1,4 +1,5 @@
 const initialState = {
+
 }
 
 export default function (state = initialState, action){
@@ -9,7 +10,6 @@ export default function (state = initialState, action){
         case 'RESET_ERRORS':
             return {};
                     
-        default: 
-            return state;
+        default: return state;
     }
 }

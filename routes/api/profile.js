@@ -10,7 +10,7 @@ const Profile = require('../../models/Profile');
 //const jwt = require('jsonwebtoken');
 
 // Get profile
-router.get('/',passport.authenticate('jwt',{session:false}),(req,req)=>{
+router.get('/',passport.authenticate('jwt',{session:false}),(req,res)=>{
     //TODO: Validation?
 
     Profile.findOne({user:req.user.id}).populate('user',['first_name','last_name','avatar']).then(profile=>{
@@ -22,7 +22,7 @@ router.get('/',passport.authenticate('jwt',{session:false}),(req,req)=>{
 
 
 // Post profile
-router.post('/',passport.authenticate('jwt',{session:false}),(res,req)=>{
+router.post('/',passport.authenticate('jwt',{session:false}),(req,res)=>{
     const profileData = {};
     profileData.user = req.user.id;
 

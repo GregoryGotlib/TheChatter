@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
-export default class Home extends Component {
+class Home extends Component {
+
+  componentDidMount(){
+    if(this.props.auth.isAuthenticated)
+      this.props.history.push('/dashboard')
+  }
+
   render() {
     return (
      <div className="home">
@@ -21,3 +28,9 @@ export default class Home extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) =>({
+  auth:state.auth
+})
+
+export default connect(mapStateToProps)(Home);

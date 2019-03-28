@@ -7,11 +7,13 @@ const regValidation = require('../../validation/register');
 const loginValidation = require('../../validation/login');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
+const keys = require('../../config/keys')
 
 // Registration
 router.post('/register',(req,res)=>{
-    const errors = regValidation(req.body.errors);
-    const isValid = regValidation(req.body.isValid);
+    console.log("inside reg..")
+    
+
 
     if(!isValid){
         console.log(errors);
@@ -51,8 +53,7 @@ router.post('/register',(req,res)=>{
 
 // Login
 router.post('/login',(req,res)=>{
-    const errors = loginValidation(req.body.errors);
-    const isValid = loginValidation(req.body.isValid);
+    const { errors, isValid } = loginValidation(req.body);
 
     if(!isValid){
         console.log(errors);
@@ -63,6 +64,7 @@ router.post('/login',(req,res)=>{
         if(!user){
             return res.status(404).json({email:'User not exists!'});
         }
+        console.log("user exists!!!!!")
         const password = req.body.password;
         bcrypt.compare(password, user.password).then(isValid =>{
             if(isValid){
