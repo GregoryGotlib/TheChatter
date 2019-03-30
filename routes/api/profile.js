@@ -24,11 +24,38 @@ router.get('/',passport.authenticate('jwt',{session:false}),(req,res)=>{
 // Post profile
 router.post('/',passport.authenticate('jwt',{session:false}),(req,res)=>{
     const profileData = {};
+    profileData.social = {};
     profileData.user = req.user.id;
 
+    // Loading data
+    if(req.body.route){
+        profileData.route = req.body.route;
+    }
+
     if(req.body.status)
-        profileData.status = req.body.status
+        profileData.status = req.body.status    
     
+    if(req.body.youtube){
+        profileData.social.youtube = req.body.youtube;
+    }
+
+    if(req.body.facebook){
+        profileData.social.facebook = req.body.facebook;
+    }
+
+    if(req.body.linkedin){
+        profileData.social.linkedin = req.body.linkedin;
+    }
+    
+
+    if(req.body.location){
+        profileData.location = req.body.location;
+    }
+
+    if(req.body.profession){
+        profileData.profession = req.body.profession;
+    }
+
     Profile.findOne({user:req.user.id}).then(profile=>{
         if(profile){
             Profile.findByIdAndUpdate({user:req.user.id},{$set: profileData}, {new: true}).then(profile=>{

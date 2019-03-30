@@ -12,6 +12,8 @@ import PrivateRoute from './utilities/privateRoute';
 import setAuth from './utilities/setAuth';
 import './App.css';
 import Dashboard from './components/user/Dashboard';
+import ProfileDash from './components/profile/ProfileDash';
+import CreateProfile from './components/profile/CreateProfile';
 
 // in case we have token
 if(localStorage.userToken){
@@ -39,6 +41,12 @@ class App extends Component {
             <Route exact path="/login" component={Login}/>
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/profiledash" component={ProfileDash}/>
+            </Switch>
+            <Switch>
+                <PrivateRoute exact path="/createProfile" component={CreateProfile}/>
             </Switch>
           </div>
             <Footer/>

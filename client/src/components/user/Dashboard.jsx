@@ -6,9 +6,9 @@ export default class Dashboard extends Component {
       <div className="dashContainer" style={{marginTop:'200px',marginBottom:'250px',marginLeft:'20%'}}> 
         <div className="row">
           <div className="dash">
-            <a href="" className="btn btn-info mr-5 mb-3" style={{width:'270px',height:'150px'}}>Profile</a>
-            <a href="" className="btn btn-success mr-5 mb-3" style={{width:'270px',height:'150px'}}>Start Chatting</a>
-            <a href="" className="btn btn-primary mr-5 mb-3" style={{width:'270px',height:'150px'}}>Dunno</a>
+            <a href="/profiledash" className="btn btn-info mr-5 mb-3 shadow-lg p-3 rounded" style={{width:'270px',height:'150px',lineHeight:'125px'}}>Profile</a>
+            <a href="" className="btn btn-success mr-5 mb-3 shadow-lg p-3 rounded" style={{width:'270px',height:'150px',lineHeight:'125px'}}>Start Chatting</a>
+            <a href="" className="btn btn-primary mr-5 mb-3 shadow-lg p-3 rounded" style={{width:'270px',height:'150px',lineHeight:'125px'}}>Dunno</a>
           </div>
         </div>
       </div>
